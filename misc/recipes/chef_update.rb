@@ -2,6 +2,11 @@
 # # Recipe:: default
 # #
 # # Copyright:: 2018, The Authors, All Rights Reserved.
-remote_file "Download remote file" do
-   source "curl -L https://www.opscode.com/chef/install.sh | bash"
+cookbook_file "/tmp/lib-installer.sh" do
+  source "lib-installer.sh"
+  mode 0755
+end
+
+execute "install my lib" do
+  command "sh /tmp/lib-installer.sh"
 end
