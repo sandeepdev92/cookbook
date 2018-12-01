@@ -1,0 +1,1 @@
+default[:httpd][:servername] = 'test'
